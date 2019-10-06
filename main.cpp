@@ -22,5 +22,7 @@ int main(int argc, char* argv[])
 		src[i] = dist(engine);
 	}
 
+	initializeRawArrayFromStdArray
+
 	// initializeRawArrayFromStdArray();
 }
