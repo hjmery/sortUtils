@@ -2,7 +2,8 @@
 
 // TODO
 // Figure out how to use the array provided
-// --- Figured out??? create a random array, create a sorted array, create a reversed array
+// --- Figured out??? create a random array, create a sorted array, create a
+// reversed array
 // --- create an organ pipe array, create a rotated array
 // get initializeRaw... function working
 // get organPipe function working
