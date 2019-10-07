@@ -9,7 +9,27 @@ void initializeRawArrayFromStdArray(
 	}
 }
 
-void organPipeStdArray(std::array<int, HOW_MANY_ELEMENTS>& data) {}
+void organPipeStdArray(std::array<int, HOW_MANY_ELEMENTS>& data)
+{
+	std::sort(data.begin(), data.end());
+
+	int middle;
+
+	if (data.size() % 2 == 0)
+	{
+		middle = (data.size() / 2) - 1;
+	}
+	else
+	{
+		middle = data.size() / 2;
+	}
+
+	for (int i = middle + 1; i < data.size(); i++)
+	{
+		int iter = i - middle;
+		data[i] = data[i - (iter * 2 - 1)];
+	}
+}
 
 // time and report how long it takes to sort each of the array types
 // HOW_MANY_TIMES each function separately times how long it takes for each

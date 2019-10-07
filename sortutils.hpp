@@ -1,13 +1,15 @@
 #pragma once
 
+#include <algorithm>
 #include <array>
 #include <chrono>
 #include <iostream>
 #include <random>
 #include <vector>
 
-const std::size_t HOW_MANY_ELEMENTS = 250000;
+const std::size_t HOW_MANY_ELEMENTS = 2500;
 const std::uint8_t HOW_MANY_TIMES = 25;
+const std::size_t TEN = 10;
 
 using SourceArray = std::array<int, HOW_MANY_ELEMENTS>;
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(sortUtils)
+project(ArrayPerformance)
 
 #creating 3 variables, storing the names of a few files that will be looped over later
 set(SOURCE_FILES
@@ -12,19 +12,20 @@ set(UNIT_TEST_FILES
     TestPerformance.cpp)
 
 #Adds to CMake the excecutable files to be run	
-add_executable(sortUtils ${HEADER_FILES} ${SOURCE_FILES} main.cpp)
+add_executable(ArrayPerformance ${HEADER_FILES} ${SOURCE_FILES} main.cpp)
 add_executable(UnitTestRunner ${HEADER_FILES} ${SOURCE_FILES} ${UNIT_TEST_FILES})
 
 #not really sure what this does
-set_property(TARGET sortUtils PROPERTY CXX_STANDARD 17)
+set_property(TARGET ArrayPerformance PROPERTY CXX_STANDARD 17)
 set_property(TARGET UnitTestRunner PROPERTY CXX_STANDARD 17)
 
 #Setting error settings for the program
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    target_compile_options(sortUtils PRIVATE /W4 /permissive-)
+    target_compile_options(ArrayPerformance PRIVATE /W4 /permissive-)
     target_compile_options(UnitTestRunner PRIVATE /W4 /permissive-)
+    set_target_properties(ArrayPerformance PROPERTIES LINK_FLAGS "/STACK:10000000")
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(sortUtils PRIVATE -Wall -Wextra -pedantic)
+    target_compile_options(ArrayPerformance PRIVATE -Wall -Wextra -pedantic)
     target_compile_options(UnitTestRunner PRIVATE -Wall -Wextra -pedantic)
 endif()
 
@@ -48,7 +49,7 @@ if (CLANG_FORMAT)
 		-style=file
 		${SOURCE_FILES_PATHS})
 
-	add_dependencies(sortUtils ClangFormat)
+	add_dependencies(ArrayPerformance ClangFormat)
 else()
     message("Unable to find clang-format")
 endif()

@@ -9,7 +9,7 @@
 // get organPipe function working
 // get evaluate functions working
 
-int main(int argc, char* argv[])
+int main()
 {
 	SourceArray srcArray;
 	int rawArray[HOW_MANY_ELEMENTS];
@@ -27,9 +27,8 @@ int main(int argc, char* argv[])
 
 	initializeRawArrayFromStdArray(srcArray, rawArray);
 
-	for (int i = 0; i < 100; i++)
-	{
-		std::cout << srcArray[i] << " " << rawArray[i] << " " << vectorArray[i]
-				  << std::endl;
-	}
+	organPipeStdArray(srcArray);
+
+	std::cout << srcArray[1] << " " << srcArray[srcArray.size() - 2]
+			  << std::endl;
 }
