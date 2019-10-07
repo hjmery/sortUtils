@@ -7,11 +7,6 @@ void initializeRawArrayFromStdArray(
 	{
 		dest[i] = source[i];
 	}
-
-	for (int i = 0; i < source.size(); i++)
-	{
-		std::cout << dest[i] << std::endl;
-	}
 }
 
 void organPipeStdArray(std::array<int, HOW_MANY_ELEMENTS>& data) {}

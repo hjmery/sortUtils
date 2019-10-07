@@ -11,18 +11,25 @@
 
 int main(int argc, char* argv[])
 {
-	SourceArray src;
+	SourceArray srcArray;
+	int rawArray[HOW_MANY_ELEMENTS];
+	std::vector<int> vectorArray;
 
 	std::random_device rd;
 	std::default_random_engine engine(rd());
 	std::uniform_int_distribution<> dist(-10'000'000, 10'000'000);
 
-	for (int i = 0; i < src.size(); i++)
+	for (int i = 0; i < srcArray.size(); i++)
 	{
-		src[i] = dist(engine);
+		srcArray[i] = dist(engine);
+		vectorArray.push_back(srcArray[i]);
 	}
 
-	initializeRawArrayFromStdArray
+	initializeRawArrayFromStdArray(srcArray, rawArray);
 
-	// initializeRawArrayFromStdArray();
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << srcArray[i] << " " << rawArray[i] << " " << vectorArray[i]
+				  << std::endl;
+	}
 }
