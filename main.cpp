@@ -11,9 +11,13 @@
 
 int main()
 {
+	// This feels wrong plus i'm using a literal buttload of memory
+	// for this but its kinda how it seems that its supposed to be
 	SourceArray srcArray;
-	int rawArray[HOW_MANY_ELEMENTS];
-	std::vector<int> vectorArray;
+	SourceArray srcArraySorted;
+	SourceArray srcArrayReversed;
+	SourceArray srcArrayOrganPipe;
+	SourceArray srcArrayRotated;
 
 	std::random_device rd;
 	std::default_random_engine engine(rd());
@@ -21,14 +25,26 @@ int main()
 
 	for (int i = 0; i < srcArray.size(); i++)
 	{
-		srcArray[i] = dist(engine);
-		vectorArray.push_back(srcArray[i]);
+		int num = dist(engine);
+		srcArray[i] = num;
 	}
 
-	initializeRawArrayFromStdArray(srcArray, rawArray);
+	srcArraySorted = srcArray;
 
-	organPipeStdArray(srcArray);
+	std::sort(srcArraySorted.begin(), srcArraySorted.end());
 
-	std::cout << srcArray[1] << " " << srcArray[srcArray.size() - 2]
-			  << std::endl;
+	for (int i = 0; i < srcArray.size(); i++)
+	{
+		srcArrayReversed[i] = srcArraySorted[i];
+		srcArrayOrganPipe[i] = srcArraySorted[i];
+		srcArrayRotated[i] = srcArraySorted[i];
+	}
+
+	std::reverse(srcArrayReversed.begin(), srcArrayReversed.end());
+	organPipeStdArray(srcArrayOrganPipe);
+	std::rotate(srcArrayRotated.begin(), srcArrayRotated.begin() + 1,
+				srcArrayRotated.end());
+
+	evaluateRawArray(srcArray, srcArraySorted, srcArrayReversed,
+					 srcArrayOrganPipe, srcArrayRotated);
 }
