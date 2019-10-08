@@ -32,16 +32,12 @@ TEST(OrganPipeArray, DoesGenerateCorrectly)
 
     for (auto i = 0ul; i < sourceArray.size() / 2; i++)
     {
-        ASSERT_EQ(sourceArray[i], array[i])
-            << "Organ pipe changed first half of array at position " << i;
+        ASSERT_EQ(sourceArray[i], array[i]) << "Organ pipe changed first half of array at position " << i;
     }
 
-    for (std::size_t first = 0ul, second = array.size() - 1; first < second;
-         first++, second--)
+    for (std::size_t first = 0ul, second = array.size() - 1; first < second; first++, second--)
     {
-        ASSERT_EQ(array[first], array[second])
-            << "Organ pipe not symmetric at positions " << first << " and "
-            << second;
+        ASSERT_EQ(array[first], array[second]) << "Organ pipe not symmetric at positions " << first << " and " << second;
     }
 }
 
@@ -53,7 +49,6 @@ TEST(RawArray, DoesInitializeFromStdArrayCorrectly)
 
     for (auto i = 0ul; i < sourceArray.size(); i++)
     {
-        ASSERT_EQ(sourceArray[i], dest[i])
-            << "Raw array differs from source array at position " << i;
+        ASSERT_EQ(sourceArray[i], dest[i]) << "Raw array differs from source array at position " << i;
     }
 }

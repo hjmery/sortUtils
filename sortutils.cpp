@@ -3,7 +3,7 @@
 void initializeRawArrayFromStdArray(
     const std::array<int, HOW_MANY_ELEMENTS>& source, int dest[])
 {
-    for (int i = 0; i < source.size(); i++)
+    for (int i = 0; i < HOW_MANY_ELEMENTS; i++)
     {
         dest[i] = source[i];
     }
